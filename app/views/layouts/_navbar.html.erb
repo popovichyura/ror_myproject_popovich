@@ -4,16 +4,19 @@
       <%= link_to "Home", root_path, class:"navbar-brand"%>
     </div>
     <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in?%>
       <li>
         <%=link_to destroy_user_session_path , method: :delete do %>
-        <i class=""></i>Log out
+        <i class="  glyphicon glyphicon-log-out"></i> Log out
         <%end%>
       </li>
+      <%else%>
       <li>
         <%=link_to new_user_session_path do%>
-          <i class=""></i>Log in
+          <i class="  glyphicon glyphicon-log-in  "></i> Log in
           <%end%>
       </li>
+      <%end%>
     </ul>
   </div>
 </nav> 
