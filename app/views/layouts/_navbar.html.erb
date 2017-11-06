@@ -4,8 +4,16 @@
       <%= link_to "Home", root_path, class:"navbar-brand"%>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li>
+        <%=link_to destroy_user_session_path , method: :delete do %>
+        <i class=""></i>Log out
+        <%end%>
+      </li>
+      <li>
+        <%=link_to new_user_session_path do%>
+          <i class=""></i>Log in
+          <%end%>
+      </li>
     </ul>
   </div>
 </nav> 
