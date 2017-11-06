@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_post, only: [:show, :edit, :destroy, :update]
-
-def show
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  
+  def show
   end
 
   def new
@@ -32,13 +32,14 @@ def show
   end
 
 
-	private
+  private
 
-	def set_post
-		@post=Post.fint(params[:id])
-	end
+  def post_params
+  	params.require(:post).permit(:user_id, :title, :body)
+  end
 
-	def post_params
-		params.require(:post).permit(:user_id, :title, :body)
-	end
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
 end
